@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "ST SuddenStop Bridge",
+  "version": "1.0",
+  "description": "Detects SuddenStop in ST AIoT Craft and triggers the local ElevenLabs server.",
+  "host_permissions": [
+    "https://staiotcraft.st.com/*",
+    "http://127.0.0.1:5000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://staiotcraft.st.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
